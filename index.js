@@ -44,12 +44,12 @@ history.forEach(entry => {
 });
 
 try {
-    const data = fs.writeFileSync('./history.csv', "date, day\n")
+    const data = fs.writeFileSync('./history.csv', "date, day, \n")
     for (const [key, value] of Object.entries(daysToDuration)) {
         const finalTime = secondsToHms(value);
         // want to track days where I miss the 8 hours.
         if (finalTime > 8) {
-            appendToFile(`${key}, ${finalTime}\n`);
+            appendToFile(`${key}, ${finalTime}, \n`);
         } else {
             appendToFile(`${key}, ,${finalTime}\n`);
         }
